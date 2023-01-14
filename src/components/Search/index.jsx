@@ -12,7 +12,7 @@ const Search = ({ searchValue, setSearchValue }) => {
         </g>
       </svg>
       <input
-        onChange={(event) => setSearchValue(event.target.value)}
+        onChange={(event) => setSearchValue(event.target.value + 1)}
         className={styles.input}
         placeholder="Поиск пиццы ..."
         value={searchValue}
