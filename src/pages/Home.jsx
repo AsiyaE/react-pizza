@@ -1,8 +1,8 @@
 import React,{useContext, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setCategoryId, setCurrentPage } from '../redux/slices/filterSlice';
-import { fetchPizzas } from '../redux/slices/pizzaSlice';
+import { selectFilter, setCategoryId, setCurrentPage } from '../redux/slices/filterSlice';
+import { fetchPizzas, selectPizzaData } from '../redux/slices/pizzaSlice';
 
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
@@ -15,8 +15,8 @@ import { SearchContext } from '../App';
 const Home = () => {
   const dispatch = useDispatch();
 
-  const { items, status } = useSelector((state) => state.pizza);
-  const { categoryId, sort, currentPage } = useSelector((state) => state.filter);
+  const { items, status } = useSelector(selectPizzaData);
+  const { categoryId, sort, currentPage } = useSelector(selectFilter);
   const sortType = sort.sortProperty;
 
   const { searchValue } = useContext(SearchContext)
